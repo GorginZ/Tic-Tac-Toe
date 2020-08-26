@@ -20,10 +20,16 @@ namespace Tic_Tac_Toe
 
       Console.WriteLine($"\n\n{playerOne.Name} VS {playerTwo.Name}\n\n{playerOne.Name} Enter your coordinate eg: 0,0\n");
 
-
+      var testGame = new Game(); testGame.Turns = 0;
       var testBoard = new Board();
+      
       testBoard.PrintBoard();
       testBoard.Move();
+      testGame.Turns++;
+      Console.WriteLine(testGame.Turns);
+      testBoard.Move();
+      testGame.Turns++;
+      Console.WriteLine(testGame.Turns);
 
     }
 
