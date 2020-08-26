@@ -25,7 +25,7 @@ namespace Tic_Tac_Toe.Tests
         { //arrange
           var testPlayer = new Player();
           //act
-          var testPlayer.SetName("Name");
+          var testPlayer.SetName();
           //assert
           var expectedName = "Name";
                             
