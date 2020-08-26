@@ -39,10 +39,8 @@ namespace Tic_Tac_Toe
       foreach (List<string> row in _board)
       {
           Console.WriteLine($"{row[0]} {row[1]} {row[2]}");
-        
       }
     }
-
 
   }
 }
