@@ -22,16 +22,40 @@ namespace Tic_Tac_Toe
 
       var testGame = new Game(); testGame.Turns = 0;
       var testBoard = new Board();
-      
       testBoard.PrintBoard();
-      testBoard.Move();
+      testBoard.Move(SetSymbol(testGame.Turns.ToString()));
       testGame.Turns++;
-      Console.WriteLine(testGame.Turns);
-      testBoard.Move();
+      Console.WriteLine(testGame.Turns.ToString());
+
+      testBoard.Move(SetSymbol(testGame.Turns.ToString()));
       testGame.Turns++;
-      Console.WriteLine(testGame.Turns);
+      Console.WriteLine(testGame.Turns.ToString());
+
+      testBoard.Move(SetSymbol(testGame.Turns.ToString()));
+      testGame.Turns++;
+      Console.WriteLine(testGame.Turns.ToString());
+
+      testBoard.Move(SetSymbol(testGame.Turns.ToString()));
+      testGame.Turns++;
+      Console.WriteLine(testGame.Turns.ToString());
+
+
+
 
     }
+    public static string SetSymbol(string turns)
+    {
+      int count = int.Parse(turns);
+
+      string symbol = "O";
+
+      if (count % 2 > 0)
+      {
+        symbol = "X";
+      }
+      return symbol;
+    }
+
 
     public static string Validate(string value, string propertyName, ValidationContext context)
     {

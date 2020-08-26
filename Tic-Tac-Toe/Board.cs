@@ -42,11 +42,9 @@ namespace Tic_Tac_Toe
         Console.WriteLine($"{row[0]} {row[1]} {row[2]}");
       }
     }
-    public string Move()
-    { string symbol = "O";
-      // if (Game.Turns % 2 == 0) {
-      //   symbol = "O";
-      // }
+    public string Move(string symbol)
+    {
+      // string symbol = "O";
       var input = Console.ReadLine();
       var coords = input.Split(",");
       int indexOne = int.Parse(coords[0]);
