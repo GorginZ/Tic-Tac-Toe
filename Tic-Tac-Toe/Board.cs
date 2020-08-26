@@ -36,16 +36,10 @@ namespace Tic_Tac_Toe
 
     public void PrintBoard()
     {
-
       foreach (List<string> row in _board)
       {
-          Console.WriteLine(row);
-          foreach(string element in row)
-          {
-            Console.WriteLine(element);
-          }
-
-      
+          Console.WriteLine($"{row[0]} {row[1]} {row[2]}");
+        
       }
     }
 
