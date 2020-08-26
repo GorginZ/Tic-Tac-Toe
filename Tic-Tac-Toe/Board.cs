@@ -46,20 +46,20 @@ namespace Tic_Tac_Toe
     {
       var input = Console.ReadLine();
       var coords = input.Split(",");
-      int index;
-      foreach (string digit in coords)
-      {
-        var resBool = int.TryParse(digit, out index);
-        Console.WriteLine(index);
-        foreach (List<string> row in _board)
-        {
-        Console.WriteLine($"{row[0]} {row[1]} {row[2]}");
+    
+      int indexOne = int.Parse(coords[0]);
+      int indexTwo = int.Parse(coords[1]);
+     
+        // foreach (List<string> row in _board)
+        // {
+        // Console.WriteLine($"{row[0]} {row[1]} {row[2]}");
 
-          row[index] = "O";
-        Console.WriteLine($"{row[0]} {row[1]} {row[2]}");
-        }
-      }
+        // }
+                  _board[indexOne][indexTwo] = "X";
+                  PrintBoard();
       return "move";
+
+      
 
     }
 
