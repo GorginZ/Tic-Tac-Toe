@@ -43,18 +43,28 @@ namespace Tic_Tac_Toe
       }
     }
     public string Move()
-    {  var input = Console.ReadLine();
+    {
+      var input = Console.ReadLine();
       var coords = input.Split(",");
       int index;
-            foreach (string digit in coords)
+      foreach (string digit in coords)
       {
         var resBool = int.TryParse(digit, out index);
         Console.WriteLine(index);
+        foreach (List<string> row in _board)
+        {
+        Console.WriteLine($"{row[0]} {row[1]} {row[2]}");
 
+          row[index] = "O";
+        Console.WriteLine($"{row[0]} {row[1]} {row[2]}");
+        }
       }
-      // _board[index][index] = "X";
-return "move";
-    
+      return "move";
+
+    }
+
+
+
+
   }
-}
 }
