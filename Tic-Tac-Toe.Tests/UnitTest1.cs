@@ -25,13 +25,26 @@ namespace Tic_Tac_Toe.Tests
         { //arrange
           var testPlayer = new Player();
           //act
-          var testPlayer.SetName();
+          //how ot test this one when the consolereadline is in the function in the class?
+          testPlayer.Name = testPlayer.GetName();
           //assert
           var expectedName = "Name";
                             
-           Assert.Equal(expectedName, testPlayer.Name); 
+           Assert.Equal(expectedName, $"{testPlayer.Name}"); 
           
         }  
+//          [Fact]
+//         public void Game()
+//         { //arrange
+//           var testGame = new Game();
+//           //act
+//           //how ot test this one when the consolereadline is in the function in the class?
+// testGame.Status = testGame.GameStatus();          //assert
+//           var expectedStatus = "draw";
+                            
+//            Assert.Equal(expectedName, $"{testPlayer.Name}"); 
+          
+//         }  
 //  [Fact]
 //         public void ValidateName()
 //         { //arrange

@@ -15,20 +15,19 @@ namespace Tic_Tac_Toe
       playerOne.Name = Validate(playerOne.Name, "Name", context);
 
       var playerTwo = new Player();
-       playerTwo.Name = playerTwo.GetName();
+      playerTwo.Name = playerTwo.GetName();
       playerTwo.Name = Validate(playerTwo.Name, "Name", context);
 
-  Console.WriteLine($"{playerOne.Name} {playerTwo.Name}");
-  
+      Console.WriteLine($"\n\n{playerOne.Name} VS {playerTwo.Name}\n\n{playerOne.Name} Enter your coordinate eg: 0,0\n");
+
+
       var testBoard = new Board();
-     testBoard.PrintBoard();
-   
-     
+      testBoard.PrintBoard();
+      testBoard.Move();
+
     }
 
-
-
-     public static string Validate(string value, string propertyName, ValidationContext context)
+    public static string Validate(string value, string propertyName, ValidationContext context)
     {
       context.MemberName = propertyName;
 
@@ -47,7 +46,7 @@ namespace Tic_Tac_Toe
         value = Console.ReadLine();
         result = new List<ValidationResult>();
         isValidProp = Validator.TryValidateProperty(value, context, result);
-      }      
+      }
       Console.WriteLine($"OK..{value}");
 
       return value;

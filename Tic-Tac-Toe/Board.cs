@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System;
+using System.Text;
 
 namespace Tic_Tac_Toe
 {
@@ -38,9 +39,22 @@ namespace Tic_Tac_Toe
     {
       foreach (List<string> row in _board)
       {
-          Console.WriteLine($"{row[0]} {row[1]} {row[2]}");
+        Console.WriteLine($"{row[0]} {row[1]} {row[2]}");
       }
     }
+    public string Move()
+    {  var input = Console.ReadLine();
+      var coords = input.Split(",");
+      int index;
+            foreach (string digit in coords)
+      {
+        var resBool = int.TryParse(digit, out index);
+        Console.WriteLine(index);
 
+      }
+      // _board[index][index] = "X";
+return "move";
+    
   }
+}
 }
