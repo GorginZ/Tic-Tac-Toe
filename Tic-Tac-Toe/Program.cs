@@ -23,49 +23,18 @@ namespace Tic_Tac_Toe
 
       while (testGame.Turns < 9)
       {
-
         var coordsResult = new List<ValidationResult>();
-
         var coordsXY = Coords.CoordsInput();
         var coordsContext = new ValidationContext(coordsXY);
 
         coordsXY.XY = Validate(coordsXY.XY, "XY", coordsContext);
-
-
-
         testGame.Board.Move(Coords.TakeCoords(coordsXY.XY), testGame.CurrentPlayer.Symbol);
-
-
-
-        // testGame.Board.Move(Coords.TakeCoords(), testGame.CurrentPlayer.Symbol);
-
         testGame.Board.PrintBoard();
         testGame.Turns++;
 
-        Console.WriteLine(testGame.Turns.ToString());
       }
       Console.WriteLine("GAME OVER");
-
     }
-
-
-    // public Coords ValidateCoords(Coords coords, ValidationContext coordsContext)
-    // {
-    //   var coordsResult = new List<ValidationResult>();
-    //   bool IsValidCoords = Validator.TryValidateObject(coords, coordsContext, coordsResult, true);
-    //   while (!IsValidCoords)
-    //   {
-    //     Console.WriteLine(IsValidCoords);
-
-    //     foreach (var x in coordsResult)
-    //     {
-    //       Console.WriteLine(x.ErrorMessage);
-    //       Console.Read();
-    //     }
-    //     return Coords.TakeCoords();
-    //   }
-    //   return Coords.TakeCoords();
-    // }
 
 
     public static string Validate(string value, string propertyName, ValidationContext context)
