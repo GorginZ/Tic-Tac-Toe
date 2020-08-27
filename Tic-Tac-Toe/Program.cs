@@ -24,14 +24,21 @@ namespace Tic_Tac_Toe
       while (testGame.Turns < 9)
       {
 
-        // var coordsResult = new List<ValidationResult>();
-        // var coords = Coords.TakeCoords();
-        // var coordsContext = new ValidationContext(coords, null, null);
-        // coords = ValidateCoords(coords, coordsContext);
-    
+        var coordsResult = new List<ValidationResult>();
+
+        var coordsXY = Coords.CoordsInput();
+        var coordsContext = new ValidationContext(coordsXY);
+
+        coordsXY.XY = Validate(coordsXY.XY, "XY", coordsContext);
 
 
-        testGame.Board.Move(Coords.TakeCoords(), testGame.CurrentPlayer.Symbol);
+
+        testGame.Board.Move(Coords.TakeCoords(coordsXY.XY), testGame.CurrentPlayer.Symbol);
+
+
+
+        // testGame.Board.Move(Coords.TakeCoords(), testGame.CurrentPlayer.Symbol);
+
         testGame.Board.PrintBoard();
         testGame.Turns++;
 
@@ -42,27 +49,23 @@ namespace Tic_Tac_Toe
     }
 
 
-// public static Coords  ValidateCoords(Coords coord, ValidationContext coordsContext)
-// {
-//    var coordsResult = new List<ValidationResult>();
+    // public Coords ValidateCoords(Coords coords, ValidationContext coordsContext)
+    // {
+    //   var coordsResult = new List<ValidationResult>();
+    //   bool IsValidCoords = Validator.TryValidateObject(coords, coordsContext, coordsResult, true);
+    //   while (!IsValidCoords)
+    //   {
+    //     Console.WriteLine(IsValidCoords);
 
-//         var coords = Coords.TakeCoords();
-
-//         // var coordsContext = new ValidationContext(coords, null, null);
-//         bool IsValidCoords = Validator.TryValidateObject(coords, coordsContext, coordsResult, true);
-//         while (!IsValidCoords)
-//         {
-//           Console.WriteLine(IsValidCoords);
-
-//           foreach (var x in coordsResult)
-//           {
-//             Console.WriteLine(x.ErrorMessage);
-//             Console.Read();
-//           }
-//           Coords.TakeCoords();
-//         }
-//         return coords;
-// }
+    //     foreach (var x in coordsResult)
+    //     {
+    //       Console.WriteLine(x.ErrorMessage);
+    //       Console.Read();
+    //     }
+    //     return Coords.TakeCoords();
+    //   }
+    //   return Coords.TakeCoords();
+    // }
 
 
     public static string Validate(string value, string propertyName, ValidationContext context)
