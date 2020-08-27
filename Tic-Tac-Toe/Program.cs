@@ -12,7 +12,6 @@ namespace Tic_Tac_Toe
       var playerOne = new Player(Player.GetName(), "O");
       var context = new ValidationContext(playerOne);
       playerOne.Name = Validate(playerOne.Name, "Name", context);
-      //constructor later remember.
       var playerTwo = new Player(Player.GetName(), "X");
       playerTwo.Name = Validate(playerTwo.Name, "Name", context);
 
@@ -24,16 +23,46 @@ namespace Tic_Tac_Toe
 
       while (testGame.Turns < 9)
       {
-        testGame.Board.Move(Coords.TakeCoords(),testGame.CurrentPlayer.Symbol);
+
+        // var coordsResult = new List<ValidationResult>();
+        // var coords = Coords.TakeCoords();
+        // var coordsContext = new ValidationContext(coords, null, null);
+        // coords = ValidateCoords(coords, coordsContext);
+    
+
+
+        testGame.Board.Move(Coords.TakeCoords(), testGame.CurrentPlayer.Symbol);
         testGame.Board.PrintBoard();
         testGame.Turns++;
 
         Console.WriteLine(testGame.Turns.ToString());
       }
       Console.WriteLine("GAME OVER");
+
     }
 
 
+// public static Coords  ValidateCoords(Coords coord, ValidationContext coordsContext)
+// {
+//    var coordsResult = new List<ValidationResult>();
+
+//         var coords = Coords.TakeCoords();
+
+//         // var coordsContext = new ValidationContext(coords, null, null);
+//         bool IsValidCoords = Validator.TryValidateObject(coords, coordsContext, coordsResult, true);
+//         while (!IsValidCoords)
+//         {
+//           Console.WriteLine(IsValidCoords);
+
+//           foreach (var x in coordsResult)
+//           {
+//             Console.WriteLine(x.ErrorMessage);
+//             Console.Read();
+//           }
+//           Coords.TakeCoords();
+//         }
+//         return coords;
+// }
 
 
     public static string Validate(string value, string propertyName, ValidationContext context)

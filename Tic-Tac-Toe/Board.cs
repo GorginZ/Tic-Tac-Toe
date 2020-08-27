@@ -45,9 +45,11 @@ namespace Tic_Tac_Toe
 
     //receives Symbol from SetSymbol in program
     //if I want to test it? does this need to return something?
+
+    //check for illegam move at indexes
     public void Move(Coords coords, string symbol)
     {
-     
+    
       _board[coords.X][coords.Y] = symbol;
   
   }
