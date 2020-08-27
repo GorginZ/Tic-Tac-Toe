@@ -9,10 +9,14 @@ namespace Tic_Tac_Toe
   {
     [Required(ErrorMessage = "You must enter your name to enter the hall of fame")]
     public string Name { get; set; }
-    // public int Score { get; set; }
+    public string Symbol { get; set; }
 
+    public Player(string name, string symbol) {
+    Name = name;
+    Symbol = symbol;
+    }
 
-    public string GetName()
+    public static string GetName()
     {
       Console.WriteLine("Tic-Tac-Toer, please enter your name");
       var input = Console.ReadLine();

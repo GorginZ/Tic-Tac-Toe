@@ -42,16 +42,14 @@ namespace Tic_Tac_Toe
         Console.WriteLine($"{row[0]} {row[1]} {row[2]}");
       }
     }
-    public string Move(string symbol)
+
+    //receives Symbol from SetSymbol in program
+    //if I want to test it? does this need to return something?
+    public void Move(Coords coords, string symbol)
     {
-      // string symbol = "O";
-      var input = Console.ReadLine();
-      var coords = input.Split(",");
-      int indexOne = int.Parse(coords[0]);
-      int indexTwo = int.Parse(coords[1]);
-      _board[indexOne][indexTwo] = symbol;
-      PrintBoard();
-      return "move";
-    }
+     
+      _board[coords.X][coords.Y] = symbol;
+  
+  }
   }
 }
