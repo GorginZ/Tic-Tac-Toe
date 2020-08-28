@@ -43,21 +43,37 @@ namespace Tic_Tac_Toe
       }
     }
 
-    //spent moves
-    // extra step b4 move fires
-    //  public void CheckMove(Coords coords, string symbol)
-    // {
-    //   if (_board[coords.X][coords.Y] == ".")
-    //   {
-        
-    //     Move(coords, symbol);
-    //   }
-    //   else {
-       
-    //   }
+    //winning cords 
+    //diagonal a
+    // 0,0 1,1 2,2
+    
+    //diagonal b
+    //0,2 1,1 0,2
 
-    // }
+//horizontal 0
+    //0,0 0,1 0,2
 
+    //horizontal 1
+    // 1,0, 1,1 1,2
+
+    //horizontal 2
+    //2,0 2,1 2,2
+
+    // vertical 0
+    //0,0 1,0, 2,0
+
+    //vertical 1
+    //0,1 1,1 2,1
+
+    //vertical 2
+    //0,2 1,2 2,2
+
+    public bool Win(string symbol) {
+      if (_board[0][0] == symbol && _board[1][1] == symbol && _board[2][2] == symbol) {Console.WriteLine($"The {symbol}s have won this one!"); return true;}
+    else {
+      return false;
+    }
+    }
 
     public bool Move(Coords coords, string symbol)
     {

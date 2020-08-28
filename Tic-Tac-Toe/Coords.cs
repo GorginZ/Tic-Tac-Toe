@@ -20,36 +20,6 @@ namespace Tic_Tac_Toe
     [Required(ErrorMessage = "You must enter two coordinates")]
     public int Y { get; set; }
 
-    // private List<string> OccupiedCoords { get; set; }
-
-
-    // public StringBuilder OccupiedCoords { get; set; }
-
-    // public static Coords CoordsCheck(Coords coords)
-    // {
-
-    //   var occupiedCoords = new StringBuilder();
-    //   coords.OccupiedCoords.Append(coords.XY);
-    //   return new Coords { OccupiedCoords = occupiedCoords };
-    // }
-
-
-
-
-    //    public static Coords()
-    // {
-    //   Console.WriteLine("Enter your coordinates:");
-    //   var input = Console.ReadLine();
-    //   return new  Coords { OccupiedCoords.Add(input) };
-    // }
-
-    // public static Coords CoordsCheck(coordsXY) {
-    //   if (OccupiedCoords.Contains(coordsXY))
-    //   {
-
-    //   }
-    // }
-
     public static Coords CoordsInput()
     {
       Console.WriteLine("Enter your coordinates:");
