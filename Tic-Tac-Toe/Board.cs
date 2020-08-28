@@ -43,11 +43,35 @@ namespace Tic_Tac_Toe
       }
     }
 
-  
-    public void Move(Coords coords, string symbol)
-    {
+    //spent moves
+    // extra step b4 move fires
+    //  public void CheckMove(Coords coords, string symbol)
+    // {
+    //   if (_board[coords.X][coords.Y] == ".")
+    //   {
+        
+    //     Move(coords, symbol);
+    //   }
+    //   else {
+       
+    //   }
 
-      _board[coords.X][coords.Y] = symbol;
+    // }
+
+
+    public bool Move(Coords coords, string symbol)
+    {
+      if (_board[coords.X][coords.Y] == ".")
+      {
+        _board[coords.X][coords.Y] = symbol;
+      return true;
+
+      }
+      else {
+        
+      Console.WriteLine("That's an occupied coordiante!");
+      return false;
+      }
 
     }
   }

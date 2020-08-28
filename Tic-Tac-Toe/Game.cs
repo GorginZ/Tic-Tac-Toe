@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using System;
+
 namespace Tic_Tac_Toe
 {
   public class Game
@@ -17,6 +20,9 @@ namespace Tic_Tac_Toe
         }
       }
     }
+
+  //  public List<string> SpentTurns {get;}
+
 
 
     public Player PlayerOne { get; }

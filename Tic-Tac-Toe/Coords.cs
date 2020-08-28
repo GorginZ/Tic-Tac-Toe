@@ -1,8 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
-
-
+using System.Text;
 
 namespace Tic_Tac_Toe
 {
@@ -21,9 +20,35 @@ namespace Tic_Tac_Toe
     [Required(ErrorMessage = "You must enter two coordinates")]
     public int Y { get; set; }
 
-// look for spent moves in list and can check it in coords take coords
-    // public List<string> SpentTurns = new List<string> {};
+    // private List<string> OccupiedCoords { get; set; }
 
+
+    // public StringBuilder OccupiedCoords { get; set; }
+
+    // public static Coords CoordsCheck(Coords coords)
+    // {
+
+    //   var occupiedCoords = new StringBuilder();
+    //   coords.OccupiedCoords.Append(coords.XY);
+    //   return new Coords { OccupiedCoords = occupiedCoords };
+    // }
+
+
+
+
+    //    public static Coords()
+    // {
+    //   Console.WriteLine("Enter your coordinates:");
+    //   var input = Console.ReadLine();
+    //   return new  Coords { OccupiedCoords.Add(input) };
+    // }
+
+    // public static Coords CoordsCheck(coordsXY) {
+    //   if (OccupiedCoords.Contains(coordsXY))
+    //   {
+
+    //   }
+    // }
 
     public static Coords CoordsInput()
     {
@@ -37,6 +62,7 @@ namespace Tic_Tac_Toe
       var coords = coordsStringXY.Split(",");
       int indexOne = int.Parse(coords[0]);
       int indexTwo = int.Parse(coords[1]);
+
       //append
       return new Coords { X = indexOne, Y = indexTwo };
     }

@@ -28,9 +28,12 @@ namespace Tic_Tac_Toe
         var coordsContext = new ValidationContext(coordsXY);
 
         coordsXY.XY = Validate(coordsXY.XY, "XY", coordsContext);
-        testGame.Board.Move(Coords.TakeCoords(coordsXY.XY), testGame.CurrentPlayer.Symbol);
-        testGame.Board.PrintBoard();
-        testGame.Turns++;
+        var validTurn = testGame.Board.Move(Coords.TakeCoords(coordsXY.XY), testGame.CurrentPlayer.Symbol);
+        if (validTurn == true)
+        {
+          testGame.Board.PrintBoard();
+          testGame.Turns++;
+        }
 
       }
       Console.WriteLine("GAME OVER");
