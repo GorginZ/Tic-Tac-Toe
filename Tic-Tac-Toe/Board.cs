@@ -69,7 +69,10 @@ namespace Tic_Tac_Toe
     //0,2 1,2 2,2
 
     public bool Win(string symbol) {
-      if (_board[0][0] == symbol && _board[1][1] == symbol && _board[2][2] == symbol) {Console.WriteLine($"The {symbol}s have won this one!"); return true;}
+      if (_board[0][0] == symbol && _board[1][1] == symbol && _board[2][2] == symbol) 
+      {
+        // Console.WriteLine($"The {symbol}s have won this one!");
+       return true;}
     else {
       return false;
     }
