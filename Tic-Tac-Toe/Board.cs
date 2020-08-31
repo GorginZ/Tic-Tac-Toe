@@ -42,6 +42,7 @@ namespace Tic_Tac_Toe
         Console.WriteLine($"{row[0]} {row[1]} {row[2]}");
       }
     }
+// obz way to check for wins but have abaondoned this. not sure if what i implemented is actually more efficient. IF I used enums or a dictionary (not sure if this is possible) I could use the magic square logic more efficiently I think. I think this ends up being more 'expensive' because I have to keep creating more lists instead of just looking. If I had a dictionary or enums I would be able to remove this extra layer I think?
 
     //winning cords 
     //diagonal a
@@ -79,22 +80,21 @@ namespace Tic_Tac_Toe
     // }
 
 
-
+//too fiddley with list.TrueForAll, tripple was going to be my predicate function but because I need it to see two things, the symbol and teh element, I'm pretty sure TrueForAll wasn't a good choice for my use.
     private bool Tripple(List<string> sequence, string symbol)
     {
-     int count = 0;
-         foreach (string element in sequence)
+      int count = 0;
+      foreach (string element in sequence)
       {
         if (element.Equals(symbol))
           count++;
       }
       if (count == 3)
-      {return true;}
-      else {
+      { return true; }
+      else
+      {
         return false;
       }
-      
-     
     }
 
 
@@ -107,16 +107,72 @@ namespace Tic_Tac_Toe
         if (_board[x][x] != ".")
         {
           sequence.Add(_board[x][x]);
-
         }
-
-      foreach (string element in sequence)
+      if (Tripple(sequence, symbol) == true)
       {
-        Console.WriteLine(element);
-
+        return true;
       }
-     return       Tripple(sequence, symbol);
+      else
+      {
+        sequence.Clear();
+      }
 
+      // diagonal /
+
+
+      for (int x = 0, y = _board.Count - 1;
+          x < _board.Count;
+          x++, y--)
+      {
+        sequence.Add(_board[x][y]);
+      }
+      if (Tripple(sequence, symbol) == true)
+      {
+        return true;
+      }
+      else
+      {
+        sequence.Clear();
+      }
+
+
+      // rows  
+
+      for (var x = 0; x < _board.Count; x++)
+      {
+        for (var y = 0; y < _board.Count; y++)
+        {
+          sequence.Add(_board[x][y]);
+        }
+        if (Tripple(sequence, symbol) == true)
+        {
+          return true;
+        }
+        else
+        {
+          sequence.Clear();
+        }
+      }
+
+      // cols |
+      for (var x = 0; x < _board.Count; x++)
+      {
+        for (var y = 0; y < _board.Count; y++)
+        {
+          sequence.Add(_board[y][x]);
+        }
+        if (Tripple(sequence, symbol) == true)
+        {
+          return true;
+        }
+        else
+        {
+          sequence.Clear();
+        }
+      }
+
+//otherwise return false
+      return false;
 
     }
 
