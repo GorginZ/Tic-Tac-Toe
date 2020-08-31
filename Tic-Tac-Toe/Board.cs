@@ -35,11 +35,30 @@ namespace Tic_Tac_Toe
 
     }
 
+    //build board of specified dimensions b/w 3 to 10
+
+    public List<List<string>> BuildBoard(int dimensions)
+    {
+      List<List<String>> board = new List<List<String>>();
+
+      for (var x = 0; x < dimensions; x++)
+      {
+        board.Add(new List<string>());
+        for (var y = 0; y < dimensions; y++)
+        {
+          board[x].Add(".");
+
+        }
+      }
+      return board;
+    }
+
     public void PrintBoard()
     {
       foreach (List<string> row in _board)
       {
-        Console.WriteLine($"{row[0]} {row[1]} {row[2]}");
+        // Console.WriteLine($"{row[0]} {row[1]} {row[2]}");
+        Console.WriteLine(String.Join(" ", row));        
       }
     }
     // obz way to check for wins but have abaondoned this. not sure if what i implemented is actually more efficient. IF I used enums or a dictionary (not sure if this is possible) I could use the magic square logic more efficiently I think. I think this ends up being more 'expensive' because I have to keep creating more lists instead of just looking. If I had a dictionary or enums I would be able to remove this extra layer I think?
@@ -89,12 +108,7 @@ namespace Tic_Tac_Toe
         if (element.Equals(symbol))
           count++;
       }
-      if (count == sequence.Count)
-      { return true; }
-      else
-      {
-        return false;
-      }
+      return count == sequence.Count;
     }
 
 
@@ -110,18 +124,18 @@ namespace Tic_Tac_Toe
         }
 
       //only want to check for wins if the sequence is as long as the dimensions 
-   
-        if (sequence.Count == _board.Count && Tripple(sequence, symbol) == true)
-        {
-          return true;
-        }
-        else
-        {
-          sequence.Clear();
-        }
-      
-        
-      
+
+      if (sequence.Count == _board.Count && Tripple(sequence, symbol) == true)
+      {
+        return true;
+      }
+      else
+      {
+        sequence.Clear();
+      }
+
+
+
 
       // diagonal /
 
@@ -132,16 +146,16 @@ namespace Tic_Tac_Toe
       {
         sequence.Add(_board[x][y]);
       }
-    
-        if (sequence.Count == _board.Count && Tripple(sequence, symbol) == true)
-        {
-          return true;
-        }
-        else
-        {
-          sequence.Clear();
-        }
-      
+
+      if (sequence.Count == _board.Count && Tripple(sequence, symbol) == true)
+      {
+        return true;
+      }
+      else
+      {
+        sequence.Clear();
+      }
+
 
       // rows  
 
@@ -160,8 +174,8 @@ namespace Tic_Tac_Toe
         {
           sequence.Clear();
         }
-      
-}
+
+      }
       // cols |
       for (var x = 0; x < _board.Count; x++)
       {
@@ -169,7 +183,7 @@ namespace Tic_Tac_Toe
         {
           sequence.Add(_board[y][x]);
         }
-      
+
         if (sequence.Count == _board.Count && Tripple(sequence, symbol) == true)
         {
           return true;
@@ -178,8 +192,8 @@ namespace Tic_Tac_Toe
         {
           sequence.Clear();
         }
-      
-}   
+
+      }
 
 
       //otherwise return false
@@ -188,21 +202,21 @@ namespace Tic_Tac_Toe
     }
 
 
-  // TrippleCheck(sequence, symbol);
+    // TrippleCheck(sequence, symbol);
 
 
-// public bool TrippleCheck(List<string> sequence, string symbol)
-// {
-//   if (Tripple(sequence, symbol) == true)
-//         {
-//           return true;
-//         }
-//         else
-//         {
-//           sequence.Clear();
-//           return false; 
-//         }
-// }
+    // public bool TrippleCheck(List<string> sequence, string symbol)
+    // {
+    //   if (Tripple(sequence, symbol) == true)
+    //         {
+    //           return true;
+    //         }
+    //         else
+    //         {
+    //           sequence.Clear();
+    //           return false; 
+    //         }
+    // }
 
 
     public bool Move(Coords coords, string symbol)
