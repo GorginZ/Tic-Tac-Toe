@@ -9,9 +9,9 @@ namespace Tic_Tac_Toe
 
     private List<List<string>> _board = new List<List<String>>();
 
-    public Board()
+    public Board(int dimensions)
     {
-      _board = BuildBoard();
+      _board = BuildBoard(dimensions);
     }
 
     public List<List<string>> GetBoard()
@@ -19,22 +19,22 @@ namespace Tic_Tac_Toe
       return _board;
     }
 
-    public List<List<string>> BuildBoard()
-    {
+    // public List<List<string>> BuildBoard()
+    // {
 
-      List<string> row0 = new List<string> { ".", ".", "." };
-      List<string> row1 = new List<string> { ".", ".", "." };
-      List<string> row2 = new List<string> { ".", ".", "." };
+    //   List<string> row0 = new List<string> { ".", ".", "." };
+    //   List<string> row1 = new List<string> { ".", ".", "." };
+    //   List<string> row2 = new List<string> { ".", ".", "." };
 
-      List<List<String>> board = new List<List<String>>();
-      board.Add(row0);
-      board.Add(row1);
-      board.Add(row2);
+    //   List<List<String>> board = new List<List<String>>();
+    //   board.Add(row0);
+    //   board.Add(row1);
+    //   board.Add(row2);
 
-      return board;
+    //   return board;
 
-    }
-
+    // }
+   
     //build board of specified dimensions b/w 3 to 10
 
     public List<List<string>> BuildBoard(int dimensions)

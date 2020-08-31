@@ -30,10 +30,10 @@ namespace Tic_Tac_Toe
     public Board Board { get; }
 
 
-    public Game(Player playerOne, Player playerTwo)
+    public Game(Player playerOne, Player playerTwo, int dimensions)
     {
       Turns = 0;
-      Board = new Board();
+      Board = new Board(dimensions);
       PlayerOne = playerOne;
       PlayerTwo = playerTwo;
     }
