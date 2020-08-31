@@ -46,11 +46,11 @@ namespace Tic_Tac_Toe
     //winning cords 
     //diagonal a
     // 0,0 1,1 2,2
-    
+
     //diagonal b
     //0,2 1,1 0,2
 
-//horizontal 0
+    //horizontal 0
     //0,0 0,1 0,2
 
     //horizontal 1
@@ -68,30 +68,77 @@ namespace Tic_Tac_Toe
     //vertical 2
     //0,2 1,2 2,2
 
-    public bool Win(string symbol) {
-      if (_board[0][0] == symbol && _board[1][1] == symbol && _board[2][2] == symbol) 
+    // public bool Win(string symbol) {
+    //   if (_board[0][0] == symbol && _board[1][1] == symbol && _board[2][2] == symbol) 
+    //   {
+    //     // Console.WriteLine($"The {symbol}s have won this one!");
+    //    return true;}
+    // else {
+    //   return false;
+    // }
+    // }
+
+
+
+    private bool Tripple(List<string> sequence, string symbol)
+    {
+     int count = 0;
+         foreach (string element in sequence)
       {
-        // Console.WriteLine($"The {symbol}s have won this one!");
-       return true;}
-    else {
-      return false;
+        if (element.Equals(symbol))
+          count++;
+      }
+      if (count == 3)
+      {return true;}
+      else {
+        return false;
+      }
+      
+     
     }
+
+
+    public bool Win(string symbol)
+    {
+      var sequence = new List<string>();
+
+      // diagonal \
+      for (var x = 0; x < _board.Count; x++)
+        if (_board[x][x] != ".")
+        {
+          sequence.Add(_board[x][x]);
+
+        }
+
+      foreach (string element in sequence)
+      {
+        Console.WriteLine(element);
+
+      }
+     return       Tripple(sequence, symbol);
+
+
     }
+
+
+
 
     public bool Move(Coords coords, string symbol)
     {
       if (_board[coords.X][coords.Y] == ".")
       {
         _board[coords.X][coords.Y] = symbol;
-      return true;
+        return true;
 
       }
-      else {
-        
-      Console.WriteLine("That's an occupied coordiante!");
-      return false;
+      else
+      {
+
+        Console.WriteLine("That's an occupied coordiante!");
+        return false;
       }
 
     }
+
   }
 }

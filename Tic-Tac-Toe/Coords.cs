@@ -7,7 +7,7 @@ namespace Tic_Tac_Toe
 {
   public class Coords
   {
-    // [RegularExpression("/[0-9]{1,2}([,.][0-9]{1,2})?$/", ErrorMessage = "Your coordinatest must be within 0-2 range")]
+    // [RegularExpression("/[0-2],[0-2]$/", ErrorMessage = "Your coordinatest must be within 0-2 range")]
     [MaxLength(3, ErrorMessage = "You need to enter two coordinates delimited by a commar eg 0,1")]
     [MinLength(3, ErrorMessage = "You need to enter two coordinates delimited by a commar eg 0,1")]
     [Required(ErrorMessage = "You must enter two coordinates, eg: 0,1")]

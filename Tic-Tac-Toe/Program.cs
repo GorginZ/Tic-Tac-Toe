@@ -21,7 +21,7 @@ namespace Tic_Tac_Toe
       var testGame = new Game(playerOne, playerTwo);
       testGame.Board.PrintBoard();
 
-      while (testGame.Board.Win(testGame.CurrentPlayer.Symbol) == false && testGame.Turns < 9)
+      while (testGame.Turns < 9)
       {
         var coordsResult = new List<ValidationResult>();
         var coordsXY = Coords.CoordsInput();
@@ -33,15 +33,21 @@ namespace Tic_Tac_Toe
         {
           testGame.Board.PrintBoard();
           var checkWin = testGame.Board.Win(testGame.CurrentPlayer.Symbol);
-          if (checkWin == false)
+          if (checkWin == true)
           {
-            testGame.Turns++;
+            Console.WriteLine($"The {testGame.CurrentPlayer.Symbol}'s have won!");
+            break;
+
           }
-          Console.WriteLine($"The {testGame.CurrentPlayer.Symbol}'s have won!");
+
+          testGame.Turns++;
+
+
+
 
         }
       }
-      Console.WriteLine("GAME OVER");
+      // Console.WriteLine("GAME OVER");
     }
 
 
