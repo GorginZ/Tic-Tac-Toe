@@ -36,7 +36,13 @@ namespace Tic_Tac_Toe
       Board = new Board(dimensions);
       PlayerOne = playerOne;
       PlayerTwo = playerTwo;
+
     }
+
+public static void Run()
+{
+ 
+}
 
   }
 }

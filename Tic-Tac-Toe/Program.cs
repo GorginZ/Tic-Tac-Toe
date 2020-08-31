@@ -15,20 +15,15 @@ namespace Tic_Tac_Toe
       var playerTwo = new Player(Player.GetName(), "X");
       playerTwo.Name = Validate(playerTwo.Name, "Name", context);
 
-      Console.WriteLine("How do you want to play? enter dimensions");
-      //change to enums selection list
-      var dimensions = int.Parse(Console.ReadLine());
 
-
+      var dimensions = Board.GetDimensions();
       var testGame = new Game(playerOne, playerTwo, dimensions);
-            Console.WriteLine($"\n\n{playerOne.Name} VS {playerTwo.Name}\n\n{playerOne.Name} Enter your coordinate eg: 0,0\n");
 
       testGame.Board.PrintBoard();
-//while needs to be changed to be whatever board dimension possible turns are
       while (testGame.Turns < (dimensions * dimensions))
       {
         var coordsResult = new List<ValidationResult>();
-        var coordsXY = Coords.CoordsInput();
+        var coordsXY = Coords.CoordsInput(testGame.CurrentPlayer.Name);
         var coordsContext = new ValidationContext(coordsXY);
 
         coordsXY.XY = Validate(coordsXY.XY, "XY", coordsContext);
@@ -45,8 +40,6 @@ namespace Tic_Tac_Toe
           }
 
           testGame.Turns++;
-
-
 
 
         }

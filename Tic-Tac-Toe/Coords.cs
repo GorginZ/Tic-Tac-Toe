@@ -20,9 +20,9 @@ namespace Tic_Tac_Toe
     [Required(ErrorMessage = "You must enter two coordinates")]
     public int Y { get; set; }
 
-    public static Coords CoordsInput()
+    public static Coords CoordsInput(string currentPlayer)
     {
-      Console.WriteLine("Enter your coordinates:");
+      Console.WriteLine($"Enter your coordinates {currentPlayer}:");
       var input = Console.ReadLine();
       return new Coords { XY = input };
     }

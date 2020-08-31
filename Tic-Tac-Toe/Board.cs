@@ -19,21 +19,18 @@ namespace Tic_Tac_Toe
       return _board;
     }
 
-    // public List<List<string>> BuildBoard()
-    // {
-
-    //   List<string> row0 = new List<string> { ".", ".", "." };
-    //   List<string> row1 = new List<string> { ".", ".", "." };
-    //   List<string> row2 = new List<string> { ".", ".", "." };
-
-    //   List<List<String>> board = new List<List<String>>();
-    //   board.Add(row0);
-    //   board.Add(row1);
-    //   board.Add(row2);
-
-    //   return board;
-
-    // }
+public static int GetDimensions()
+  {
+    Console.WriteLine("How do you want to play? for 3x3 board put: 3 ");
+    var stringDimensions = Console.ReadLine();
+    var dimensions = int.Parse(stringDimensions);
+    while(dimensions < 3 || dimensions > 10)
+    {
+      Console.WriteLine("You can only play betwen 3x3 and 10x10 enter again please");
+  stringDimensions = Console.ReadLine();
+    dimensions = int.Parse(stringDimensions);    }
+    return dimensions;
+  }
    
     //build board of specified dimensions b/w 3 to 10
 
