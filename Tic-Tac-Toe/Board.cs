@@ -20,30 +20,6 @@ namespace Tic_Tac_Toe
       return _board;
     }
 
-    // public static int GetDimensions()
-    // {
-    //   Console.WriteLine("How do you want to play? for 3x3 board put: 3 ");
-    //   var stringDimensions = Console.ReadLine();
-    //   Regex rx = new Regex(@"[^3-9]");
-    //   while (rx.IsMatch(stringDimensions))
-    //   {
-
-    //     Console.WriteLine($"{stringDimensions} isn't a number! Please enter again");
-    //     stringDimensions = Console.ReadLine();
-
-        
-    //   }
-    //   var dimensions = int.Parse(stringDimensions);
-
-    //   while (dimensions < 3 || dimensions > 10)
-    //   {
-    //     Console.WriteLine("You can only play betwen 3x3 and 10x10 enter again please");
-    //     stringDimensions = Console.ReadLine();
-    //     dimensions = int.Parse(stringDimensions);
-    //   }
-    //   return dimensions;
-    // }
-
     //build board of specified dimensions b/w 3 to 10
 
     public List<List<string>> BuildBoard(int dimensions)
@@ -227,7 +203,7 @@ namespace Tic_Tac_Toe
     //         }
     // }
 
-
+//check coord in range
     public bool Move(Coords coords, string symbol)
     {
       if (_board[coords.X][coords.Y] == ".")

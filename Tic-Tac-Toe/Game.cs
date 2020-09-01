@@ -33,6 +33,14 @@ namespace Tic_Tac_Toe
 
     public Board Board { get; }
 
+    public Game(Player playerOne, Player playerTwo, int dimensions)
+    {
+      Turns = 0;
+      Board = new Board(dimensions);
+      PlayerOne = playerOne;
+      PlayerTwo = playerTwo;
+
+    }
     public static int GetDimensions()
     {
 
@@ -63,15 +71,6 @@ namespace Tic_Tac_Toe
       }
     }
 
-    public Game(Player playerOne, Player playerTwo, int dimensions)
-    {
-      Turns = 0;
-      Board = new Board(dimensions);
-      PlayerOne = playerOne;
-      PlayerTwo = playerTwo;
-
-    }
-
     public static void Run()
     {
       var playerOne = new Player(Player.GetName(), "O");
@@ -82,16 +81,10 @@ namespace Tic_Tac_Toe
 
 
       var dimensions = Game.GetDimensions();
-
-
       var testGame = new Game(playerOne, playerTwo, dimensions);
 
-      // var gameContext = new ValidationContext(testGame);
-      // dimensions = Validate(testGame.Dimensions, "Dimensions", gameContext);
-
-
-
       testGame.Board.PrintBoard();
+
       while (testGame.Turns < dimensions * dimensions)
       {
         var coordsResult = new List<ValidationResult>();

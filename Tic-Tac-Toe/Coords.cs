@@ -6,8 +6,9 @@ using System.Text;
 namespace Tic_Tac_Toe
 {
   public class Coords
-  {
-    // [RegularExpression("/[0-2],[0-2]$/", ErrorMessage = "Your coordinatest must be within 0-2 range")]
+  { 
+    //this now only checks that the format is right, I also need to make sure the RANGE isn't exceeding the size of indexes
+    [RegularExpression("[0-9],[0-9]", ErrorMessage = "You must enter in this format X,Y ")]
     [MaxLength(3, ErrorMessage = "You need to enter two coordinates delimited by a commar eg 0,1")]
     [MinLength(3, ErrorMessage = "You need to enter two coordinates delimited by a commar eg 0,1")]
     [Required(ErrorMessage = "You must enter two coordinates, eg: 0,1")]
