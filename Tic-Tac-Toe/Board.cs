@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System;
+using System.Text.RegularExpressions;
 using System.Text;
 
 namespace Tic_Tac_Toe
@@ -19,19 +20,30 @@ namespace Tic_Tac_Toe
       return _board;
     }
 
-public static int GetDimensions()
-  {
-    Console.WriteLine("How do you want to play? for 3x3 board put: 3 ");
-    var stringDimensions = Console.ReadLine();
-    var dimensions = int.Parse(stringDimensions);
-    while(dimensions < 3 || dimensions > 10)
-    {
-      Console.WriteLine("You can only play betwen 3x3 and 10x10 enter again please");
-  stringDimensions = Console.ReadLine();
-    dimensions = int.Parse(stringDimensions);    }
-    return dimensions;
-  }
-   
+    // public static int GetDimensions()
+    // {
+    //   Console.WriteLine("How do you want to play? for 3x3 board put: 3 ");
+    //   var stringDimensions = Console.ReadLine();
+    //   Regex rx = new Regex(@"[^3-9]");
+    //   while (rx.IsMatch(stringDimensions))
+    //   {
+
+    //     Console.WriteLine($"{stringDimensions} isn't a number! Please enter again");
+    //     stringDimensions = Console.ReadLine();
+
+        
+    //   }
+    //   var dimensions = int.Parse(stringDimensions);
+
+    //   while (dimensions < 3 || dimensions > 10)
+    //   {
+    //     Console.WriteLine("You can only play betwen 3x3 and 10x10 enter again please");
+    //     stringDimensions = Console.ReadLine();
+    //     dimensions = int.Parse(stringDimensions);
+    //   }
+    //   return dimensions;
+    // }
+
     //build board of specified dimensions b/w 3 to 10
 
     public List<List<string>> BuildBoard(int dimensions)
@@ -55,7 +67,7 @@ public static int GetDimensions()
       foreach (List<string> row in _board)
       {
         // Console.WriteLine($"{row[0]} {row[1]} {row[2]}");
-        Console.WriteLine(String.Join(" ", row));        
+        Console.WriteLine(String.Join(" ", row));
       }
     }
     // obz way to check for wins but have abaondoned this. not sure if what i implemented is actually more efficient. IF I used enums or a dictionary (not sure if this is possible) I could use the magic square logic more efficiently I think. I think this ends up being more 'expensive' because I have to keep creating more lists instead of just looking. If I had a dictionary or enums I would be able to remove this extra layer I think?

@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Text.RegularExpressions;
+
 
 
 namespace Tic_Tac_Toe
@@ -31,6 +33,35 @@ namespace Tic_Tac_Toe
 
     public Board Board { get; }
 
+    public static int GetDimensions()
+    {
+
+      Console.WriteLine("How do you want to play? for 3x3 board put: 3 ");
+      var stringDimensions = Console.ReadLine();
+      bool isValid = ValidDimensions(stringDimensions);
+      while (!isValid)
+      {
+        Console.WriteLine("enter a number b/w 3 and 10 for board dimensions, or enter for 3x3");
+        stringDimensions = Console.ReadLine();
+        isValid = ValidDimensions(stringDimensions);
+      }
+        int.TryParse(stringDimensions, out int dimensions);
+        return dimensions;
+    }
+
+
+    public static bool ValidDimensions(string stringDimensions)
+    {
+
+      if (int.TryParse(stringDimensions, out int useDimensions) && useDimensions >= 3 && useDimensions < 10)
+      {
+        return true;
+      }
+      else
+      {
+        return false;
+      }
+    }
 
     public Game(Player playerOne, Player playerTwo, int dimensions)
     {
@@ -41,7 +72,7 @@ namespace Tic_Tac_Toe
 
     }
 
-  public static void Run()
+    public static void Run()
     {
       var playerOne = new Player(Player.GetName(), "O");
       var context = new ValidationContext(playerOne);
@@ -50,11 +81,18 @@ namespace Tic_Tac_Toe
       playerTwo.Name = Validate(playerTwo.Name, "Name", context);
 
 
-      var dimensions = Board.GetDimensions();
+      var dimensions = Game.GetDimensions();
+
+
       var testGame = new Game(playerOne, playerTwo, dimensions);
 
+      // var gameContext = new ValidationContext(testGame);
+      // dimensions = Validate(testGame.Dimensions, "Dimensions", gameContext);
+
+
+
       testGame.Board.PrintBoard();
-      while (testGame.Turns < (dimensions * dimensions))
+      while (testGame.Turns < dimensions * dimensions)
       {
         var coordsResult = new List<ValidationResult>();
         var coordsXY = Coords.CoordsInput(testGame.CurrentPlayer.Name);
@@ -81,7 +119,7 @@ namespace Tic_Tac_Toe
       Console.WriteLine("What a game");
     }
 
-     public static string Validate(string value, string propertyName, ValidationContext context)
+    public static string Validate(string value, string propertyName, ValidationContext context)
     {
       context.MemberName = propertyName;
 
