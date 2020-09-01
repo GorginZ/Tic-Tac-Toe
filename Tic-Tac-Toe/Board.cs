@@ -187,39 +187,33 @@ namespace Tic_Tac_Toe
     }
 
 
-    // TrippleCheck(sequence, symbol);
-
-
-    // public bool TrippleCheck(List<string> sequence, string symbol)
-    // {
-    //   if (Tripple(sequence, symbol) == true)
-    //         {
-    //           return true;
-    //         }
-    //         else
-    //         {
-    //           sequence.Clear();
-    //           return false; 
-    //         }
-    // }
-
-//check coord in range
+  
+    //check coord in range
+    //is this a crummy and totally wrong use of try catch? I suspect as much.
     public bool Move(Coords coords, string symbol)
     {
-      if (_board[coords.X][coords.Y] == ".")
+      try
       {
-        _board[coords.X][coords.Y] = symbol;
-        return true;
+        if (_board[coords.X][coords.Y] == ".")
+        {
+          _board[coords.X][coords.Y] = symbol;
+          return true;
 
+        }
+        else
+        {
+
+          Console.WriteLine("That's an occupied coordiante!");
+          return false;
+        }
       }
-      else
-      {
 
-        Console.WriteLine("That's an occupied coordiante!");
+      catch (System.ArgumentOutOfRangeException)
+      {
+        Console.WriteLine("those coordinates are outside the bounds of this universe");
         return false;
+
       }
-
     }
-
   }
 }
